@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  
+  <!-- Primary Meta Tags -->
+  <title>Quran Reading - Complete Holy Quran with Translations | Quran Voice</title>
+  <meta name="title" content="Quran Reading - Complete Holy Quran with Translations | Quran Voice">
+  <meta name="description" content="Read the complete Holy Quran online with English translations and tafseer. All 114 Surahs with beautiful Arabic typography and easy navigation." />
+  <meta name="keywords" content="Quran reading, Holy Quran, Quran online, Quran translation, Quran English, Quran tafseer, read Quran, Islamic scripture, Quran text, Arabic Quran">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://quranvoice.com/quran.html">
+  <meta property="og:title" content="Quran Reading - Complete Holy Quran with Translations">
+  <meta property="og:description" content="Read the complete Holy Quran online with English translations and tafseer.">
+  <meta property="og:image" content="https://quranvoice.com/assets/Logo2.png">
+  
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Quran Reading - Complete Holy Quran">
+  <meta name="twitter:description" content="Read the complete Holy Quran online with English translations and tafseer.">
+  
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://quranvoice.com/quran.html">
+  
+  <!-- Favicon -->
+  <link rel="icon" href="assets/Logo2.png" type="image/png">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <img src="assets/logo.svg" alt="Quran Voice logo" width="40" height="40" />
+        <span>Quran Voice</span>
+      </div>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="./index.html">Home</a>
+        <a href="./quran.html" aria-current="page">Quran Reading</a>
+        <a href="./map.html">Visual Map</a>
+        <a href="./prayer.html">Prayer Times</a>
+        <a href="./about.html">About</a>
+      </nav>
+      <div class="nav-tools">
+        <div class="search">
+          <input class="input" type="text" id="searchQuran" placeholder="Search surah…" />
+        </div>
+        <label class="switch" title="Toggle dark mode">
+          <input type="checkbox" id="darkModeToggle" />
+          <span class="slider"></span>
+        </label>
+      </div>
+    </div>
+  </header>
+
+  <main id="main" class="quran-page">
+    <aside class="surah-list">
+      <div class="surah-list-header">
+        <h2>Surahs</h2>
+        <div class="filter-tabs">
+          <button class="active" data-filter="all">All</button>
+          <button data-filter="meccan">Meccan</button>
+          <button data-filter="medinan">Medinan</button>
+        </div>
+      </div>
+      <div id="surahList" class="surahs"></div>
+    </aside>
+
+    <section class="quran-content">
+      <div class="content-header">
+        <div class="surah-info">
+          <h1 id="surahTitle">Select a Surah</h1>
+          <p id="surahMeta" class="muted"></p>
+        </div>
+        <div class="content-controls">
+          <label>
+            <input type="checkbox" id="showTranslation" checked />
+            Show Translation
+          </label>
+          <label>
+            <input type="checkbox" id="showTafseer" />
+            Show Tafseer
+          </label>
+          <select id="translationLang">
+            <option value="en.asad">English - Muhammad Asad</option>
+            <option value="en.sahih">English - Saheeh International</option>
+            <option value="en.pickthall">English - Pickthall</option>
+            <option value="en.yusufali">English - Yusuf Ali</option>
+            <option value="ur.jalandhry">Urdu - Jalandhry</option>
+            <option value="id.indonesian">Indonesian</option>
+            <option value="fr.hamidullah">French - Hamidullah</option>
+          </select>
+          <select id="fontSize">
+            <option value="small">Small</option>
+            <option value="medium" selected>Medium</option>
+            <option value="large">Large</option>
+            <option value="xlarge">Extra Large</option>
+          </select>
+        </div>
+      </div>
+
+      <div id="loading" class="loading" style="display:none;">
+        <div class="spinner"></div>
+        <p>Loading Surah...</p>
+      </div>
+      <div id="ayahContainer" class="ayah-container"></div>
+
+      <div class="pagination">
+        <button id="prevSurah" class="btn secondary" disabled>← Previous Surah</button>
+        <button id="nextSurah" class="btn secondary" disabled>Next Surah →</button>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; <span class="year">2025</span> Quran Voice</p>
+  </footer>
+
+  <script type="module" src="./assets/js/quran-page.js"></script>
+</body>
+</html>

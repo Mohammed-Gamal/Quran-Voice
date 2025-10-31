@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Prayer Times</title>
+  <meta name="description" content="Accurate prayer times based on your current location." />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <img src="assets/logo.svg" alt="Quran Voice logo" />
+        <span>Quran Voice</span>
+      </div>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="./index.html">Home</a>
+        <a href="./quran.html">Quran Reading</a>
+        <a href="./map.html">Visual Map</a>
+        <a href="./prayer.html" aria-current="page">Prayer Times</a>
+        <a href="./about.html">About</a>
+      </nav>
+      <div class="nav-tools">
+        <div class="search" aria-hidden="true">
+          <input class="input" type="text" placeholder="Search…" disabled />
+        </div>
+        <label class="switch" title="Toggle dark mode">
+          <input type="checkbox" id="darkModeToggle" />
+          <span class="slider"></span>
+        </label>
+      </div>
+    </div>
+  </header>
+
+  <main id="main" class="card-container">
+    <div class="card">
+      <h1>Prayer Times</h1>
+      <p class="sub">Automatically calculates today's times using your current location.</p>
+
+      <div class="row">
+        <div>
+          <label>Location</label>
+          <div id="loc" class="muted">Waiting for permission…</div>
+        </div>
+        <div>
+          <label>&nbsp;</label>
+          <div style="display:flex; gap:8px; align-items:center;">
+            <button class="btn" id="useGPS">Use GPS</button>
+            <button class="btn secondary" id="manualToggle">Enter manually</button>
+          </div>
+        </div>
+      </div>
+
+      <div id="manualPanel" class="row" style="margin-top:12px; display:none;">
+        <div>
+          <label>Latitude</label>
+          <input class="input" type="number" id="lat" step="0.0001" placeholder="e.g. 24.7136" />
+        </div>
+        <div>
+          <label>Longitude</label>
+          <input class="input" type="number" id="lon" step="0.0001" placeholder="e.g. 46.6753" />
+        </div>
+      </div>
+
+      <div class="row" style="margin-top:12px;">
+        <div>
+          <label>Calculation method</label>
+          <select id="method">
+            <option value="MWL">Muslim World League</option>
+            <option value="UmmAlQura">Umm al-Qura</option>
+            <option value="Egyptian">Egyptian General Authority</option>
+            <option value="Karachi">Karachi (Hanafi)</option>
+            <option value="NorthAmerica">ISNA (North America)</option>
+            <option value="Kuwait">Kuwait</option>
+            <option value="Qatar">Qatar</option>
+            <option value="Dubai">Dubai</option>
+            <option value="Turkey">Turkey</option>
+          </select>
+        </div>
+        <div>
+          <label>Madhab</label>
+          <select id="madhab">
+            <option value="Shafi">Shafi’i / Maliki / Hanbali</option>
+            <option value="Hanafi">Hanafi</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="row" style="margin-top:12px;">
+        <div>
+          <label>High‑latitude rule</label>
+          <select id="highLat">
+            <option value="MiddleOfTheNight">Middle of the Night</option>
+            <option value="SeventhOfTheNight">Seventh of the Night</option>
+            <option value="TwilightAngle">Twilight Angle</option>
+          </select>
+        </div>
+        <div>
+          <label>Timezone</label>
+          <div id="tz" class="muted"></div>
+        </div>
+      </div>
+
+      <div style="display:flex; align-items:center; gap:8px; margin-top:16px;">
+        <div id="nextPrayer" class="muted"></div>
+        <button class="btn secondary" id="recalc">Recalculate</button>
+      </div>
+
+      <div class="grid" id="times" style="margin-top:12px;"></div>
+      <div class="footer-note" id="notes"></div>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; <span class="year">2025</span> Quran Voice</p>
+  </footer>
+
+  <!-- Adhan calculation library (UMD bundle from correct path) -->
+  <script src="https://unpkg.com/adhan@4.4.3/lib/bundles/adhan.umd.js"></script>
+  <script type="module" src="./assets/js/prayer-page.js"></script>
+</body>
+</html>

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quran Visual Map - Interactive Insights</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Skip to main content for accessibility -->
+  <a href="#main" class="skip-link">Skip to main content</a>
+
+  <!-- Header -->
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <img src="assets/logo.svg" alt="Quran Voice logo" />
+        <span>Quran Voice</span>
+      </div>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="./index.html">Home</a>
+        <a href="./quran.html">Quran Reading</a>
+        <a href="./map.html" aria-current="page">Visual Map</a>
+        <a href="./prayer.html">Prayer Times</a>
+        <a href="./about.html">About</a>
+      </nav>
+      <div class="nav-tools">
+        <div class="search" aria-hidden="true">
+          <input class="input" type="text" placeholder="Search…" disabled>
+        </div>
+        <label class="switch" title="Toggle dark mode">
+          <input type="checkbox" id="darkModeToggle" />
+          <span class="slider"></span>
+        </label>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main id="main" class="map-page">
+    <div class="container">
+      <div class="page-header">
+        <h2>Quran Visual Map</h2>
+        <p>Interactive visualizations and insights into the Holy Quran's structure</p>
+      </div>
+
+      <!-- View Selector -->
+      <div class="map-controls">
+        <button class="map-btn active" data-view="timeline">📅 Revelation Timeline</button>
+        <button class="map-btn" data-view="heatmap">🔥 Surah Length Map</button>
+        <button class="map-btn" data-view="juz">📚 Juz' Distribution</button>
+        <button class="map-btn" data-view="stats">📊 Statistics</button>
+      </div>
+
+      <!-- Timeline View -->
+      <div id="timeline-view" class="map-view active">
+        <div class="view-header">
+          <h3>Revelation Timeline</h3>
+          <p>Chronological order of revelation - Meccan (green) vs Medinan (blue)</p>
+        </div>
+        <div class="timeline-legend">
+          <span class="legend-item"><span class="dot meccan"></span> Meccan (86 surahs)</span>
+          <span class="legend-item"><span class="dot medinan"></span> Medinan (28 surahs)</span>
+        </div>
+        <div id="timeline-container" class="visualization-container">
+          <svg id="timeline-svg"></svg>
+        </div>
+      </div>
+
+      <!-- Heat Map View -->
+      <div id="heatmap-view" class="map-view">
+        <div class="view-header">
+          <h3>Surah Length Heat Map</h3>
+          <p>Visual representation of surah sizes - darker colors indicate longer surahs</p>
+        </div>
+        <div class="heatmap-legend">
+          <span>Short</span>
+          <div class="gradient-bar"></div>
+          <span>Long</span>
+        </div>
+        <div id="heatmap-container" class="visualization-container">
+          <!-- Grid will be generated here -->
+        </div>
+      </div>
+
+      <!-- Juz' View -->
+      <div id="juz-view" class="map-view">
+        <div class="view-header">
+          <h3>Juz' (Parts) Distribution</h3>
+          <p>30 equal parts of the Quran for systematic reading</p>
+        </div>
+        <div id="juz-container" class="visualization-container">
+          <!-- Juz cards will be generated here -->
+        </div>
+      </div>
+
+      <!-- Statistics View -->
+      <div id="stats-view" class="map-view">
+        <div class="view-header">
+          <h3>Quran Statistics & Insights</h3>
+          <p>Numerical insights into the structure of the Holy Quran</p>
+        </div>
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-icon">📖</div>
+            <div class="stat-value">114</div>
+            <div class="stat-label">Total Surahs</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon">✨</div>
+            <div class="stat-value">6,236</div>
+            <div class="stat-label">Total Ayahs</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon">🕌</div>
+            <div class="stat-value">86</div>
+            <div class="stat-label">Meccan Surahs</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon">🌆</div>
+            <div class="stat-value">28</div>
+            <div class="stat-label">Medinan Surahs</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon">📚</div>
+            <div class="stat-value">30</div>
+            <div class="stat-label">Juz' (Parts)</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon">📄</div>
+            <div class="stat-value">604</div>
+            <div class="stat-label">Pages (Mushaf)</div>
+          </div>
+        </div>
+
+        <div class="charts-container">
+          <div class="chart-card">
+            <h4>Revelation Type Distribution</h4>
+            <div id="revelation-chart" class="chart"></div>
+          </div>
+          <div class="chart-card">
+            <h4>Top 10 Longest Surahs</h4>
+            <div id="length-chart" class="chart"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; <span id="year">2025</span> Quran Voice</p>
+  </footer>
+
+  <script type="module" src="assets/js/map-page.js"></script>
+</body>
+</html>

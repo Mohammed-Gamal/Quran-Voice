@@ -1,0 +1,33 @@
+{
+  "name": "Quran Voice - Islamic Radio & Recitations",
+  "short_name": "Quran Voice",
+  "description": "Listen to Quran recitations, live radio streams, and daily adhkar",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#00796b",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "assets/Logo2.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "assets/Logo2.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": [
+    "education",
+    "lifestyle",
+    "religion"
+  ],
+  "lang": "en-US",
+  "dir": "ltr",
+  "scope": "./",
+  "prefer_related_applications": false
+}

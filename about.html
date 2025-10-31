@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Quran Voice</title>
+    <meta name="description" content="About the Quran Voice project." />
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header>
+        <div class="container nav">
+            <div class="brand">
+                <img src="assets/logo.svg" alt="Quran Voice logo" />
+                <span>Quran Voice</span>
+            </div>
+            <nav class="nav-links" aria-label="Primary">
+                <a href="./index.html">Home</a>
+                <a href="./quran.html">Quran Reading</a>
+                <a href="./map.html">Visual Map</a>
+                <a href="./prayer.html">Prayer Times</a>
+                <a href="./about.html" aria-current="page">About</a>
+            </nav>
+            <div class="nav-tools">
+                <div class="search" aria-hidden="true">
+                    <input class="input" type="text" placeholder="Search…" disabled>
+                </div>
+                <label class="switch" title="Toggle dark mode">
+                    <input type="checkbox" id="darkModeToggle" />
+                    <span class="slider"></span>
+                </label>
+            </div>
+        </div>
+    </header>
+    <main id="main" class="container">
+        <section class="card">
+            <h1>About This Website</h1>
+            <p class="sub">A simple, fast and modern way to listen to Quran radios and read daily adhkar.</p>
+            <p style="line-height:1.75">
+                Welcome to Quran Voice. Our aim is to make the beautiful recitation of the Holy Qur'an easily
+                accessible to everyone, everywhere, at any time.
+                This project focuses on clarity, speed, and accessibility with a design inspired by Islamic art and
+                culture.
+            </p>
+            <p style="margin-top:12px; line-height:1.75">
+                Built with respect for the Ummah, hoping to spread peace, knowledge, and unity.
+                May Allah bless you and accept your good deeds.
+            </p>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; <span class="year">2025</span> Quran Voice</p>
+    </footer>
+    <script type="module">
+        import { initThemeToggle } from './assets/js/theme.js';
+        import { initCommon } from './assets/js/common.js';
+        import { initDhikrReminder } from './assets/js/dhikr-reminder.js';
+        initThemeToggle();
+        initCommon();
+        initDhikrReminder();
+    </script>
+</body>
+
+</html>
