@@ -18,6 +18,9 @@ export function initThemeToggle() {
   }
 
   function apply(t) {
+    // Check if theme is actually changing to avoid unnecessary re-renders
+    if (root.getAttribute('data-theme') === t) return;
+    
     root.setAttribute('data-theme', t);
   }
 }

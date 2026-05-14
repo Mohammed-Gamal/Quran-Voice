@@ -23,15 +23,23 @@ export async function initRadios() {
       }
     }
 
-    // Default to first
-    const first = data.radios?.[0];
-    if (first) {
-      audio.src = first.url;
-      if (img && first.img) img.src = first.img;
-      select.value = first.id;
+    // Default to Cairo Radio (ID 19) or first if not found
+    const targetId = "19";
+    const targetRadio = (data.radios || []).find(r => String(r.id) === targetId) || data.radios?.[0];
+
+    if (targetRadio) {
+      audio.src = targetRadio.url;
+      const statusName = document.getElementById('radioStatus');
+      if (statusName) statusName.textContent = targetRadio.name || '';
+      if (img) {
+        img.src = targetRadio.img || 'assets/logo_broken.png';
+        img.onerror = () => { img.src = 'assets/logo_broken.png'; };
+      }
+      select.value = targetRadio.id;
     }
   } catch (err) {
     console.error('Failed to load radios', err);
+    if (img) img.src = 'assets/logo_broken.png';
     if (status) status.textContent = 'Unable to load radios right now.';
     const fallback = document.createElement('option');
     fallback.value = 'fallback';
@@ -48,7 +56,12 @@ export async function initRadios() {
       const rec = (data.radios || []).find(r => String(r.id) === String(id));
       if (rec) {
         audio.src = rec.url;
-        if (img && rec.img) img.src = rec.img;
+        const statusName = document.getElementById('radioStatus');
+        if (statusName) statusName.textContent = rec.name || '';
+        if (img) {
+          img.src = rec.img || 'assets/logo_broken.png';
+          img.onerror = () => { img.src = 'assets/logo_broken.png'; };
+        }
         audio.play().catch(() => {/* autoplay may be blocked */});
       }
     } catch (e) {

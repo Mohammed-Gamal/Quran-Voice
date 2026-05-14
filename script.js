@@ -31,7 +31,8 @@ document.addEventListener('change', async function (e) {
 		console.log(audioElement, reciterImageElement, reciter);
 
 		audioElement.src = reciter.url;
-		reciterImageElement.src = reciter.img;
+		reciterImageElement.src = reciter.img || 'assets/logo_broken.png';
+		reciterImageElement.onerror = () => { reciterImageElement.src = 'assets/logo_broken.png'; };
 	}
 });
 

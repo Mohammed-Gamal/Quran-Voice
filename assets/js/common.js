@@ -13,4 +13,34 @@ export function initCommon() {
       // For now, single content area; extend later if needed
     }));
   }
+
+  // Burger Menu toggle
+  const burgerMenu = document.getElementById('burgerMenu');
+  const navLinks = document.getElementById('navLinks');
+
+  if (burgerMenu && navLinks) {
+    burgerMenu.addEventListener('click', () => {
+      const isOpen = navLinks.classList.toggle('open');
+      burgerMenu.classList.toggle('open');
+      burgerMenu.setAttribute('aria-expanded', isOpen);
+    });
+
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!burgerMenu.contains(e.target) && !navLinks.contains(e.target) && navLinks.classList.contains('open')) {
+        navLinks.classList.remove('open');
+        burgerMenu.classList.remove('open');
+        burgerMenu.setAttribute('aria-expanded', 'false');
+      }
+    });
+
+    // Close menu on link click
+    navLinks.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+            navLinks.classList.remove('open');
+            burgerMenu.classList.remove('open');
+            burgerMenu.setAttribute('aria-expanded', 'false');
+        });
+    });
+  }
 }
